@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  nodejs-mongodb:
+    image: app-nodejs-mongodb
+    environment:
+      - MONGO_URL=ongodb://mongodb:27017/test
+    depends_on:
+      - mongodb
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/usr/src
+
+  mongodb:
+    image: mongo
